@@ -1,4 +1,4 @@
-package com.brown0909.final_programacion;
+package com.brown0909.semestralruleta;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
