@@ -31,7 +31,7 @@ public class MesaRuletaController {
     @FXML private Button addFundsButton;
     @FXML private Button retireButton;
 
-    private Mesa mesa;
+    private com.brown0909.semestralruleta.Mesa mesa;
     private Jugador jugador;
     private double montoApuestaActual = 10.0;
     private boolean sePuedeApostar = true;
@@ -70,7 +70,7 @@ public class MesaRuletaController {
         this.jugador = new Jugador(playerName, initialAmount);
         Ruleta ruleta = new Ruleta();
         Crupier crupier = new Crupier("Crupier AI");
-        this.mesa = new Mesa(crupier, ruleta);
+        this.mesa = new com.brown0909.semestralruleta.Mesa(crupier, ruleta);
         this.mesa.agregarJugador(jugador);
 
         this.sePuedeApostar = true;
@@ -115,7 +115,7 @@ public class MesaRuletaController {
         } else {
             tipoApuesta = textoBoton.toUpperCase();
         }
-        Apuesta nuevaApuesta = new Apuesta(tipoApuesta, montoApuestaActual);
+        com.brown0909.semestralruleta.Apuesta nuevaApuesta = new com.brown0909.semestralruleta.Apuesta(tipoApuesta, montoApuestaActual);
         try {
             int numero = Integer.parseInt(textoBoton);
             nuevaApuesta.setTipoApuesta("NUMERO");
@@ -142,12 +142,12 @@ public class MesaRuletaController {
         spinButton.setDisable(true);
         bettingGrid.setDisable(true);
         messageLabel.setText("¡La rueda está girando! No más apuestas.");
-        ResultadoRonda resultadoRonda = mesa.iniciarRonda();
+        com.brown0909.semestralruleta.ResultadoRonda resultadoRonda = mesa.iniciarRonda();
         animarRuletaSimple(resultadoRonda);
     }
 
-    private void animarRuletaSimple(ResultadoRonda resultadoRonda) {
-        Resultado resultadoFinal = resultadoRonda.getResultadoGiro();
+    private void animarRuletaSimple(com.brown0909.semestralruleta.ResultadoRonda resultadoRonda) {
+        com.brown0909.semestralruleta.Resultado resultadoFinal = resultadoRonda.getResultadoGiro();
         String numeroGanadorStr = resultadoFinal.getNumero() == 37 ? "00" : String.valueOf(resultadoFinal.getNumero());
 
         double gradosPorCasilla = 360.0 / ORDEN_RUEDA.length;
@@ -229,7 +229,7 @@ public class MesaRuletaController {
 
     private void actualizarDisplayDeApuestas() {
         StringBuilder sb = new StringBuilder("Apuestas actuales:\n");
-        for (Apuesta apuesta : jugador.getApuestasActuales()) {
+        for (com.brown0909.semestralruleta.Apuesta apuesta : jugador.getApuestasActuales()) {
             String tipo = apuesta.getTipoApuesta();
             if (tipo.equals("NUMERO")) {
                 tipo = String.valueOf(apuesta.getNumeroApostado());

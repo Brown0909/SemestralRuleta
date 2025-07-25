@@ -9,7 +9,7 @@ public class Jugador {
 
     private String nombreJugador;
     private double saldo;
-    private List<com.brown0909.final_programacion.Apuesta> apuestasActuales;
+    private List<com.brown0909.semestralruleta.Apuesta> apuestasActuales;
 
     public Jugador(String nombreJugador, double saldoInicial) {
         this.nombreJugador = nombreJugador;
@@ -18,7 +18,7 @@ public class Jugador {
     }
 
 
-    public boolean realizarApuesta(com.brown0909.final_programacion.Apuesta apuesta) {
+    public boolean realizarApuesta(com.brown0909.semestralruleta.Apuesta apuesta) {
         if (apuesta.getMonto() > this.saldo) {
             System.out.println("Saldo insuficiente para realizar la apuesta.");
             return false;
@@ -46,7 +46,7 @@ public class Jugador {
         return saldo;
     }
 
-    public List<com.brown0909.final_programacion.Apuesta> getApuestasActuales() {
+    public List<com.brown0909.semestralruleta.Apuesta> getApuestasActuales() {
         return apuestasActuales;
     }
 }

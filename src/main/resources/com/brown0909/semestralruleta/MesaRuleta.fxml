@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
-<BorderPane fx:id="mainPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #0A481E;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.brown0909.final_programacion.MesaRuletaController">
+<BorderPane fx:id="mainPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #0A481E;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.brown0909.semestralruleta.MesaRuletaController">
     <left>
         <VBox alignment="CENTER" prefWidth="450.0" spacing="15.0" BorderPane.alignment="CENTER">
             <children>

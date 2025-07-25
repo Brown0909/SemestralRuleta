@@ -1,4 +1,4 @@
-package com.brown0909.final_programacion;
+package com.brown0909.semestralruleta;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,27 +24,27 @@ public class Mesa {
         this.jugadores.add(jugador);
     }
 
-    public com.brown0909.final_programacion.ResultadoRonda iniciarRonda() {
+    public com.brown0909.semestralruleta.ResultadoRonda iniciarRonda() {
 
         double totalApostado = 0;
         for (Jugador jugador : jugadores) {
-            totalApostado += jugador.getApuestasActuales().stream().mapToDouble(com.brown0909.final_programacion.Apuesta::getMonto).sum();
+            totalApostado += jugador.getApuestasActuales().stream().mapToDouble(com.brown0909.semestralruleta.Apuesta::getMonto).sum();
         }
 
-        com.brown0909.final_programacion.Resultado resultadoGiro = ruleta.girarRuleta();
+        com.brown0909.semestralruleta.Resultado resultadoGiro = ruleta.girarRuleta();
         double gananciasTotales = evaluarApuestas(resultadoGiro);
 
         for (Jugador jugador : jugadores) {
             jugador.limpiarApuestas();
         }
-        return new com.brown0909.final_programacion.ResultadoRonda(resultadoGiro, gananciasTotales, totalApostado);
+        return new com.brown0909.semestralruleta.ResultadoRonda(resultadoGiro, gananciasTotales, totalApostado);
     }
 
-    private double evaluarApuestas(com.brown0909.final_programacion.Resultado resultado) {
+    private double evaluarApuestas(com.brown0909.semestralruleta.Resultado resultado) {
         double gananciasRonda = 0;
         for (Jugador jugador : jugadores) {
             double gananciasJugador = 0;
-            for (com.brown0909.final_programacion.Apuesta apuesta : jugador.getApuestasActuales()) {
+            for (com.brown0909.semestralruleta.Apuesta apuesta : jugador.getApuestasActuales()) {
                 gananciasJugador += calcularGanancia(apuesta, resultado);
             }
             if (gananciasJugador > 0) {
@@ -56,7 +56,7 @@ public class Mesa {
     }
 
 
-    private double calcularGanancia(com.brown0909.final_programacion.Apuesta apuesta, com.brown0909.final_programacion.Resultado resultado) {
+    private double calcularGanancia(com.brown0909.semestralruleta.Apuesta apuesta, com.brown0909.semestralruleta.Resultado resultado) {
         String tipo = apuesta.getTipoApuesta();
         double monto = apuesta.getMonto();
         int numeroGanador = resultado.getNumero();

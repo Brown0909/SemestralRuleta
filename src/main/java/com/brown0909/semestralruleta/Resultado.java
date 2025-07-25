@@ -1,4 +1,4 @@
-package com.brown0909.final_programacion;
+package com.brown0909.semestralruleta;
 
 public class Resultado {
     private final int numero;
